@@ -1,8 +1,13 @@
 package com.example.essai;
 
 public class Car {
-    public String plateNumber;
-    public boolean rent;
+    private String plateNumber;
+    private boolean rent;
+
+    public Car(String plateNumber, boolean rent) {
+        this.plateNumber = plateNumber;
+        this.rent = rent;
+    }
 
     public String getPlateNumber() {
         return this.plateNumber;
