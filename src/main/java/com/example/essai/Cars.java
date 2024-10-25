@@ -16,6 +16,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import com.example.essai.Car;
 import com.example.essai.Dates;
@@ -23,18 +26,22 @@ import com.example.essai.Dates;
 @RestController
 public class Cars {
 
-    /*
-     * List<Car> carsList = new ArrayList<>(
-     * 
-     * );
-     */
+    List<Car> carsList = new ArrayList<Car>();
+
+    public Cars() {
+        carsList.add(new Car("1", false));
+        carsList.add(new Car("2", true));
+        carsList.add(new Car("3", false));
+        carsList.add(new Car("4", false));
+    }
+
     // Get all the cars
     @GetMapping("/cars")
     @ResponseStatus(HttpStatus.OK)
-    // @ResponseBody
-    public Car listOfCars() {
-        Car cars = new Car("1", false);
-        return cars;
+    @ResponseBody
+    public List<Car> listOfCars() {
+        // Car cars = new Car("1", false);
+        return carsList;
     }
 
     // Car newCar = new Car();
