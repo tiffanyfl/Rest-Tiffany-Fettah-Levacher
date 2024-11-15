@@ -17,3 +17,6 @@ jobs:
           export SHELL=/bin/bash
           chmod 777 ./gradlew
           ./gradlew build
+          docker build -t carsjava
+          docker run -p 5000:8080 carsjava
+          curl --header "Content-Type: application/json" --request GET http://localhost:5000/cars
